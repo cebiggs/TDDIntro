@@ -1,4 +1,5 @@
 .idea/
 printStream/
+build/
 .gradle
 .DS_Store
