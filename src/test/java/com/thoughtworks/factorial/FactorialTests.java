@@ -25,7 +25,6 @@ public class FactorialTests {
     }
 
     @Test
-    @Ignore
     public void shouldReturnTwoWhenNumberIsTwo(){
         assertThat(factorial.compute(2), is(2));
     }
