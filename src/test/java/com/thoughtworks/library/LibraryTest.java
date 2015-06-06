@@ -3,6 +3,7 @@ package com.thoughtworks.library;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.junit.Test;
+import org.junit.Before;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -22,14 +23,22 @@ public class LibraryTest {
 
      */
 
+    private List<String> books;
+    private PrintStream printStream;
+
+
+    @Before
+    public void setUp() {
+        books = new ArrayList<>();
+        printStream = mock(PrintStream.class);
+
+    }
 
     @Test
     public void shouldPrintBookTitleWhenThereIsOneBook() {
 
-        List<String> books = new ArrayList<>();
         String title = "Book Title";
         books.add(title);
-        PrintStream printStream = mock(PrintStream.class);
         Library library = new Library(books, printStream, null);
 
         library.listBooks();
@@ -39,8 +48,6 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintNothingWhenThereAreNoBooks() {
-        List<String> books = new ArrayList<>();
-        PrintStream printStream = mock(PrintStream.class);
         Library library = new Library(books, printStream, null);
         library.listBooks();
         verify(printStream).println();
