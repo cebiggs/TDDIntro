@@ -5,7 +5,15 @@ package com.thoughtworks.accountbalance;
  */
 public class Account {
 
-    public double balance;
+    private double balance;
+
+    public void setBalance(double amount) {
+        balance = amount;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
 
     public void deposit(double deposit) {
         makeTransaction(deposit);
