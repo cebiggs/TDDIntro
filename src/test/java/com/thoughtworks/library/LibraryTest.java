@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.junit.Test;
 import org.junit.Before;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
@@ -33,7 +34,6 @@ public class LibraryTest {
     public void setUp() {
         books = new ArrayList<>();
         printStream = mock(PrintStream.class);
-
     }
 
     @Test
@@ -57,13 +57,18 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintBothBookTitlesWhenThereAreTwoBooks() {
-//        books.add("Compost: Do You Love Your Worms?");
-//        books.add("Frogs: It's a Party in the Pond");
-//        Library library = new Library(books, printStream, null);
-//
-//        library.listBooks();
-//
-//        verify(printStream).println();
+        String title1 = "Compost: Do You Love Your Worms?";
+        String title2 = "Frogs: It's a Party in the Pond";
+        books.add(title1);
+        books.add(title2);
+
+        Library library = new Library(books, printStream, null);
+
+        library.listBooks();
+
+        InOrder inOrder = Mockito.inOrder(printStream, printStream);
+        inOrder.verify(printStream).println(title1);
+        inOrder.verify(printStream).println(title2);
     }
 
     /*
