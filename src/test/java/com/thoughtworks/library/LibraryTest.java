@@ -102,13 +102,13 @@ public class LibraryTest {
         DateTime time = new DateTime();
         DateTimeFormatter dateTimeFormatter = mock(DateTimeFormatter.class);
 
-        when(dateTimeFormatter.print(time)).thenReturn("FormattedTimeString");
+        when(dateTimeFormatter.print(time)).thenReturn("2013-04-08 16:33:17");
 
         Library library = new Library(books, printStream, dateTimeFormatter);
 
         library.welcome(time);
 
-        // add a verify here
+        verify(printStream).println(contains("2013-04-08 16:33:17"));
     }
 
     @Test
