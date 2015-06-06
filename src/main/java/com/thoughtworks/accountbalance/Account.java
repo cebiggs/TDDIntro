@@ -8,10 +8,14 @@ public class Account {
     public double balance;
 
     public void deposit( double deposit ) {
-        balance += deposit;
+        makeTransaction(deposit);
     }
 
     public void withdraw( double amount ) {
-        balance -= amount;
+       makeTransaction(-amount);
+    }
+
+    private void makeTransaction( double amount ) {
+        balance += amount;
     }
 }
