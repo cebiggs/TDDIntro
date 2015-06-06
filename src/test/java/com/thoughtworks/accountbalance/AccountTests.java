@@ -13,11 +13,14 @@ public class AccountTests {
         assertThat(account.balance, is(150.00));
     }
 
-//    @Test
-//    public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
-//
-//    }
-//
+    @Test
+    public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
+        Account account = new Account();
+        account.balance = 100;
+        account.withdraw(50);
+        assertThat(account.balance, is(50.00));
+    }
+
 //    @Test
 //    public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
 //

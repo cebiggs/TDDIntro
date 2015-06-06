@@ -10,4 +10,8 @@ public class Account {
     public void deposit( double deposit ) {
         balance += deposit;
     }
+
+    public void withdraw( double amount ) {
+        balance -= amount;
+    }
 }
