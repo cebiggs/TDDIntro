@@ -7,15 +7,18 @@ public class Account {
 
     public double balance;
 
-    public void deposit( double deposit ) {
+    public void deposit(double deposit) {
         makeTransaction(deposit);
     }
 
-    public void withdraw( double amount ) {
-       makeTransaction(-amount);
+    public void withdraw(double amount) {
+        if(amount > balance) {
+            return;
+        }
+        makeTransaction(-amount);
     }
 
-    private void makeTransaction( double amount ) {
+    private void makeTransaction(double amount) {
         balance += amount;
     }
 }
