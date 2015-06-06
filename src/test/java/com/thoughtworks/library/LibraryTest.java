@@ -4,6 +4,8 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.junit.Test;
 import org.junit.Before;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -50,13 +52,18 @@ public class LibraryTest {
     public void shouldPrintNothingWhenThereAreNoBooks() {
         Library library = new Library(books, printStream, null);
         library.listBooks();
-        verify(printStream).println();
+        verify(printStream, Mockito.never()).println("never happened");
     }
 
     @Test
     public void shouldPrintBothBookTitlesWhenThereAreTwoBooks() {
-
-        // implement me
+//        books.add("Compost: Do You Love Your Worms?");
+//        books.add("Frogs: It's a Party in the Pond");
+//        Library library = new Library(books, printStream, null);
+//
+//        library.listBooks();
+//
+//        verify(printStream).println();
     }
 
     /*
